@@ -1,6 +1,7 @@
 # This workflow will do a clean install of node dependencies, cache/restore them, build the source code and run tests across different versions of node
 # For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
 
+
 name: Node.js CI
 
 on:
@@ -11,8 +12,13 @@ on:
 
 jobs:
   build:
+    - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
+    - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
+    - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
+    - run: echo "🍏 This job's status is ${{ job.status }}."
+    - run: echo “Esse é o meu pipeline RA:192021622”
 
-    runs-on: ubuntu-latest
+  runs-on: ubuntu-latest
 
     strategy:
       matrix:
@@ -27,5 +33,6 @@ jobs:
         node-version: ${{ matrix.node-version }}
       
     - run: npm ci
-    - run: npm run build --if-present
+    - run: npm run build --if-present  
+
     
